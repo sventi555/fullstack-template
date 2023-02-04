@@ -1,0 +1,6 @@
+node_modules/
+dist/
+coverage/
+tsconfig.json
+postcss.config.cjs
+tailwind.config.cjs
