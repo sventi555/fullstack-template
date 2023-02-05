@@ -1,8 +1,19 @@
 {
   "name": "lib",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
   "license": "MIT",
   "scripts": {
     "dev": "yarn build --watch --preserveWatchOutput",

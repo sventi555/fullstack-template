@@ -1,0 +1,9 @@
+**/dist/
+**/node_modules/
+**/.dockerignore
+**/.eslintignore
+**/.eslintrc.json
+**/.lintstagedrc.json
+**/.prettierignore
+**/jest.config.js
+**/Dockerfile
