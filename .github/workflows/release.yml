@@ -1,6 +1,7 @@
 name: Publish docker images
-on: release
-  types: [published]
+on:
+  release:
+    types: [published]
 jobs:
   push_to_registry:
     runs-on: ubuntu-latest
