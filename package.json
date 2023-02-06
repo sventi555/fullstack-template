@@ -11,6 +11,7 @@
     "dev": "lerna run dev --parallel --stream",
     "build": "lerna run build",
     "lint": "lerna run lint",
+    "test": "lerna run test",
     "client": "yarn workspace client",
     "lib": "yarn workspace lib",
     "server": "yarn workspace server",

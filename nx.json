@@ -18,7 +18,8 @@
       "dependsOn": ["^build"]
     },
     "test": {
-      "inputs": ["default", "^prod"]
+      "inputs": ["default", "^prod"],
+      "dependsOn": ["^build"]
     }
   }
 }
