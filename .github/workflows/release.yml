@@ -26,7 +26,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          file: '{context}/services/client.dockerfile'
+          file: 'services/client.dockerfile'
           push: true
           tags: ${{ steps.client_meta.outputs.tags }}
           labels: ${{ steps.client_meta.outputs.labels }}
@@ -41,7 +41,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          file: '{context}/services/server.dockerfile'
+          file: 'services/server.dockerfile'
           push: true
           tags: ${{ steps.server_meta.outputs.tags }}
           labels: ${{ steps.server_meta.outputs.labels }}
