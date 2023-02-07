@@ -1,6 +1,6 @@
 import Fastify from 'fastify';
+import { toInt } from 'lib';
 import { exampleRoutes } from './routes';
-import { toInt } from './utils/parse';
 
 const fastify = Fastify({ logger: true });
 

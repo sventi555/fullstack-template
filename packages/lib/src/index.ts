@@ -1,1 +1,1 @@
-export const libVar = 'libVar';
+export * from './utils';
