@@ -1,6 +1,6 @@
-node_modules/
-dist/
 coverage/
-tsconfig.json
+dist/
+node_modules/
 tsconfig.cjs.json
 tsconfig.esm.json
+tsconfig.json
