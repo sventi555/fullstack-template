@@ -1,0 +1,6 @@
+app_version = ""
+
+app_name = "fullstack-template"
+gcp_project_id = ""
+image_registry = ""
+domain_name = ""
