@@ -37,7 +37,7 @@ resource "google_dns_managed_zone" "dns_zone" {
 
 # CLIENT
 resource "google_cloud_run_service" "client_run_service" {
-  location = "us-east4"
+  location = var.region
   name     = "${var.app_name}-client"
 
   template {
@@ -57,7 +57,7 @@ resource "google_cloud_run_service_iam_policy" "client_no_auth_policy" {
 }
 
 resource "google_cloud_run_domain_mapping" "client_domain_mapping" {
-  location = "us-east4"
+  location = var.region
   name     = var.domain_name
   metadata {
     namespace = var.gcp_project_id
@@ -88,7 +88,7 @@ resource "google_dns_record_set" "client_dns_record_set" {
 
 # SERVER
 resource "google_cloud_run_service" "server_run_service" {
-  location = "us-east4"
+  location = var.region
   name     = "${var.app_name}-server"
 
   template {
@@ -108,7 +108,7 @@ resource "google_cloud_run_service_iam_policy" "server_no_auth_policy" {
 }
 
 resource "google_cloud_run_domain_mapping" "server_domain_mapping" {
-  location = "us-east4"
+  location = var.region
   name     = "api.${var.domain_name}"
   metadata {
     namespace = var.gcp_project_id
