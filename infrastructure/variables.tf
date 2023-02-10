@@ -6,16 +6,22 @@ variable "app_version" {
   type = string
 }
 
+variable "domain_name" {
+  type = string
+}
+
 variable "gcp_project_id" {
   type = string
 }
 
-variable "image_registry" {
-  type = string
+variable "dns_zone_name" {
+  type    = string
+  default = null
 }
 
-variable "domain_name" {
-  type = string
+variable "image_registry" {
+  type    = string
+  default = null
 }
 
 variable "region" {

@@ -20,6 +20,11 @@ provider "google" {
   project = var.gcp_project_id
 }
 
+locals {
+  dns_zone_name  = var.dns_zone_name != null ? var.dns_zone_name : replace(var.domain_name, ".", "-")
+  image_registry = var.image_registry != null ? var.image_registry : "${var.region}-docker.pkg.dev/${var.gcp_project_id}/${var.app_name}"
+}
+
 # SHARED RESOURCES
 data "google_iam_policy" "no_auth_policy" {
   binding {
@@ -30,11 +35,6 @@ data "google_iam_policy" "no_auth_policy" {
   }
 }
 
-resource "google_dns_managed_zone" "dns_zone" {
-  name     = var.app_name
-  dns_name = "${var.domain_name}."
-}
-
 # CLIENT
 resource "google_cloud_run_service" "client_run_service" {
   location = var.region
@@ -43,7 +43,7 @@ resource "google_cloud_run_service" "client_run_service" {
   template {
     spec {
       containers {
-        image = "${var.image_registry}/client:${var.app_version}"
+        image = "${local.image_registry}/client:${var.app_version}"
       }
     }
   }
@@ -67,23 +67,20 @@ resource "google_cloud_run_domain_mapping" "client_domain_mapping" {
   }
 }
 
-locals {
-  client_dns_types = toset([for record in google_cloud_run_domain_mapping.client_domain_mapping.status[0].resource_records : record.type])
-}
-
-locals {
-  client_dns_records = {
-    for type in local.client_dns_types : type => [for record in google_cloud_run_domain_mapping.client_domain_mapping.status[0].resource_records : record.rrdata if record.type == type]
-  }
-}
-
-resource "google_dns_record_set" "client_dns_record_set" {
-  for_each     = local.client_dns_records
-  managed_zone = google_dns_managed_zone.dns_zone.name
-  name         = google_dns_managed_zone.dns_zone.dns_name
-  type         = each.key
+resource "google_dns_record_set" "client_A_record_set" {
+  managed_zone = local.dns_zone_name
+  name         = "${var.domain_name}."
+  type         = "A"
   ttl          = 300
-  rrdatas      = each.value
+  rrdatas      = [for record in google_cloud_run_domain_mapping.client_domain_mapping.status[0].resource_records : record.rrdata if record.type == "A"]
+}
+
+resource "google_dns_record_set" "client_AAAA_record_set" {
+  managed_zone = local.dns_zone_name
+  name         = "${var.domain_name}."
+  type         = "AAAA"
+  ttl          = 300
+  rrdatas      = [for record in google_cloud_run_domain_mapping.client_domain_mapping.status[0].resource_records : record.rrdata if record.type == "AAAA"]
 }
 
 # SERVER
@@ -94,7 +91,7 @@ resource "google_cloud_run_service" "server_run_service" {
   template {
     spec {
       containers {
-        image = "${var.image_registry}/server:${var.app_version}"
+        image = "${local.image_registry}/server:${var.app_version}"
       }
     }
   }
@@ -118,23 +115,12 @@ resource "google_cloud_run_domain_mapping" "server_domain_mapping" {
   }
 }
 
-locals {
-  server_dns_types = toset([for record in google_cloud_run_domain_mapping.server_domain_mapping.status[0].resource_records : record.type])
-}
-
-locals {
-  server_dns_records = {
-    for type in local.server_dns_types : type => [for record in google_cloud_run_domain_mapping.server_domain_mapping.status[0].resource_records : record.rrdata if record.type == type]
-  }
-}
-
-resource "google_dns_record_set" "server_dns_record_set" {
-  for_each     = local.server_dns_records
-  managed_zone = google_dns_managed_zone.dns_zone.name
-  name         = "api.${google_dns_managed_zone.dns_zone.dns_name}"
-  type         = each.key
+resource "google_dns_record_set" "server_CNAME_record_set" {
+  managed_zone = local.dns_zone_name
+  name         = "api.${var.domain_name}."
+  type         = "CNAME"
   ttl          = 300
-  rrdatas      = each.value
+  rrdatas      = [for record in google_cloud_run_domain_mapping.server_domain_mapping.status[0].resource_records : record.rrdata if record.type == "CNAME"]
 }
 
 
