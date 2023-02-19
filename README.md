@@ -29,9 +29,3 @@ For example:
 ```
 yarn client test
 ```
-
-## Deploying
-
-This template can be easily deployed to GCP using terraform.
-There are a few steps that are needed to bootstrap the deployment, and these are described in detail [here](./infrastructure/README.md#bootstrapping).
-
