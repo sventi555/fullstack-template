@@ -32,7 +32,8 @@ FROM node:18-alpine AS runner
 
 WORKDIR /usr/src/app
 
-# Copy in node modules
+# Copy in node modules and root package.json
+COPY package.json ./
 COPY --from=builder /usr/src/app/node_modules ./node_modules
 
 # Copy in lib build artifacts
@@ -43,7 +44,5 @@ COPY --from=builder /usr/src/app/packages/lib/dist ./packages/lib/dist
 COPY --from=builder /usr/src/app/packages/server/package.json ./packages/server/package.json
 COPY --from=builder /usr/src/app/packages/server/dist ./packages/server/dist
 
-WORKDIR /usr/src/app/packages/server
-
 # Begin serving the server
-CMD ["yarn", "start"]
+CMD ["yarn", "server", "start"]

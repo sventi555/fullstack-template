@@ -29,3 +29,17 @@ For example:
 ```
 yarn client test
 ```
+
+## Releasing
+
+This repository contains a workflow that publishes docker images (client + server) to the specified GCP artifact registry.
+In order to publish images, the following GitHub Actions variables and secrets need to be set.
+
+### Variables
+
+- `IMAGE_REGISTRY`: the location of the image registry being published to.
+
+### Secrets
+
+- `GCP_CREDS`: a base64 encoded service account key json file.
+The service account should have read/write permissions on the artifact registry.

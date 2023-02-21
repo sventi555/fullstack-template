@@ -1,8 +1,13 @@
+import 'dotenv/config';
+
+import cors from '@fastify/cors';
 import Fastify from 'fastify';
 import { toInt } from 'lib';
 import { exampleRoutes } from './routes';
 
 const fastify = Fastify({ logger: true });
+
+fastify.register(cors);
 
 fastify.register(exampleRoutes);
 
@@ -10,7 +15,7 @@ fastify.register(exampleRoutes);
   try {
     await fastify.listen({
       host: '0.0.0.0',
-      port: toInt(process.env.PORT) || 3000,
+      port: toInt(process.env.PORT) || 3001,
     });
   } catch (err) {
     fastify.log.error(err);
