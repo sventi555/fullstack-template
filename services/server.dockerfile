@@ -1,4 +1,4 @@
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /usr/src/app
 
@@ -28,7 +28,7 @@ RUN yarn build
 RUN yarn --no-progress --frozen-lockfile --ignore-engines --ignore-scripts --production
 
 
-FROM node:18-alpine AS runner
+FROM node:20-alpine AS runner
 
 WORKDIR /usr/src/app
 
