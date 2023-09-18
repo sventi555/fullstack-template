@@ -2,7 +2,7 @@
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node10"
   },
   "include": ["src"],
   "exclude": ["**/*.test.ts"]
