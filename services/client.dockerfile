@@ -2,13 +2,6 @@ FROM node:20-alpine AS builder
 
 WORKDIR /usr/src/app
 
-# Install python3 for nx
-RUN apk add --no-cache python3 make g++
-
-# Copy in monorepo configuration files
-COPY lerna.json ./
-COPY nx.json ./
-
 # Install dependencies
 COPY yarn.lock ./
 COPY package.json ./
@@ -22,7 +15,8 @@ COPY ./packages/lib ./packages/lib
 COPY ./packages/client ./packages/client
 
 # Build lib and client
-RUN yarn build
+RUN yarn lib build
+RUN yarn client build
 
 
 FROM nginx:alpine AS runner
