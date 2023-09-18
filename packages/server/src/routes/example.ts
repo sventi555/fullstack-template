@@ -1,20 +1,12 @@
-import { Static, Type } from '@sinclair/typebox';
-import { FastifyInstance } from 'fastify';
+import { zValidator } from '@hono/zod-validator';
+import { Hono } from 'hono';
+import { z } from 'zod';
 
-const BodySchema = Type.Object({ name: Type.String() });
+export const exampleRoutes = (app: Hono) => {
+  const schema = z.object({ name: z.string() });
+  app.get('/example', zValidator('query', schema), (c) => {
+    const { name } = c.req.valid('query');
 
-type BodyType = Static<typeof BodySchema>;
-
-export const exampleRoutes = async (fastify: FastifyInstance) => {
-  fastify.get('/', async () => {
-    return { hello: 'world' };
+    return c.text(`Hello ${name}!`);
   });
-
-  fastify.post<{ Body: BodyType }>(
-    '/',
-    { schema: { body: BodySchema } },
-    async (req) => {
-      return { hello: req.body.name };
-    },
-  );
 };
