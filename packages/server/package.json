@@ -14,6 +14,7 @@
   "nodemonConfig": {
     "watch": [
       ".",
+      ".env",
       "../lib/dist"
     ]
   },
@@ -29,7 +30,6 @@
     "@tsconfig/node20": "^20.1.2",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.11.18",
-    "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "concurrently": "^8.2.1",
@@ -39,5 +39,8 @@
     "prettier": "^2.8.3",
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }
