@@ -1,6 +1,6 @@
 {
   "env": {
-    "node": true
-  },
-  "extends": ["../../.eslintrc.json"]
+    "node": true,
+    "es2023": true
+  }
 }
