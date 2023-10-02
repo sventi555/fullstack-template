@@ -2,6 +2,9 @@ FROM node:20-alpine AS builder
 
 WORKDIR /usr/src/app
 
+# Install python3
+RUN apk add --no-cache python3 make g++
+
 # Install dependencies
 COPY yarn.lock ./
 COPY package.json ./
