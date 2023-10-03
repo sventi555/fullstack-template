@@ -23,6 +23,9 @@
     "test": "jest",
     "test:watch": "jest --watch"
   },
+  "dependencies": {
+    "zod": "^3.22.2"
+  },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",
     "@types/jest": "^29.4.0",

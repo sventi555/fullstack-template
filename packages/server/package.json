@@ -23,8 +23,7 @@
     "@hono/zod-validator": "^0.1.8",
     "dotenv": "^16.0.3",
     "hono": "^3.6.3",
-    "lib": "*",
-    "zod": "^3.22.2"
+    "lib": "*"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",
