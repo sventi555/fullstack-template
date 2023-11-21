@@ -11,6 +11,8 @@
 **/README.md
 .git/
 .husky/
+services/
+.dockerignore
 .gitignore
 .prettierrc.json
 commitlint.config.js
