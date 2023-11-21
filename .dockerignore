@@ -1,5 +1,6 @@
 **/dist/
 **/node_modules/
+**/.turbo/
 **/.env
 **/.env.example
 **/.eslintignore
@@ -8,3 +9,8 @@
 **/.prettierignore
 **/jest.config.js
 **/README.md
+.git/
+.husky/
+.gitignore
+.prettierrc.json
+commitlint.config.js
