@@ -1,9 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "ES6",
-    "moduleResolution": "Node10",
-    "outDir": "./dist/esm"
+    "outDir": "./dist"
   },
   "exclude": ["**/*.test.ts"]
 }

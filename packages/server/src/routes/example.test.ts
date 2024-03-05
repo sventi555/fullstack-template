@@ -15,7 +15,7 @@ describe('example routes', () => {
     it('should respond with "Hello <name>"', async () => {
       const res = await app.request(`${route}?name=sventi`);
       expect(res.status).toEqual(200);
-      expect(await res.text()).toBe('Hello sventi!');
+      expect(await res.json()).toBe('Hello sventi!');
     });
   });
 });

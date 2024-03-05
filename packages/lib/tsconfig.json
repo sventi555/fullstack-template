@@ -3,6 +3,5 @@
   "compilerOptions": {
     "declaration": true
   },
-  "include": ["src"],
-  "exclude": ["**/*.test.ts"]
+  "include": ["src"]
 }
