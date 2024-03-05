@@ -1,6 +1,7 @@
 import { HttpResponse, http } from 'msw';
 import { setupServer } from 'msw/node';
 import { afterAll, afterEach, beforeAll, vi } from 'vitest';
+import { Environment } from './src/config';
 
 /**
  * Note: Vite will only include variables that are prefixed with VITE_ in the built application.
@@ -10,16 +11,16 @@ import { afterAll, afterEach, beforeAll, vi } from 'vitest';
  * - `setup-tests.ts`
  * - `src/config.ts`
  */
-const mockEnv = {
-  VITE_API_HOST: 'http://test-api-host.com',
+const mockEnv: Environment = {
+  apiHost: 'http://test-api-host.com',
 };
 
-Object.entries(mockEnv).forEach(([key, val]) => {
-  vi.stubEnv(key, val);
+vi.mock('./src/config', () => {
+  return { default: mockEnv };
 });
 
 const handlers = [
-  http.get(`${mockEnv.VITE_API_HOST}/example`, ({ request }) => {
+  http.get(`${mockEnv.apiHost}/example`, ({ request }) => {
     const url = new URL(request.url);
     return HttpResponse.json(`Hello ${url.searchParams.get('name')}!`);
   }),
