@@ -1,10 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { App } from './App';
 
 describe('App', () => {
-  it('should be defined', () => {
+  it('should say Hello World!', async () => {
     render(<App />);
 
-    expect(screen.getByText(/Hello World!/i)).toBeDefined();
+    await waitFor(() =>
+      expect(screen.getByText(/Hello World!/i)).toBeDefined(),
+    );
   });
 });

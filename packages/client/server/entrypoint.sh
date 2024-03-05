@@ -2,7 +2,11 @@
 
 # Construct an up to date environment.js file
 # Note: Vite will only include variables that are prefixed with VITE_ in the built application.
-# Please add any updates to `.env.example`, `src/config.ts`, and here.
+# Please add any updates to
+# - `.env.example`
+# - `server/entrypoint.sh`
+# - `setup-tests.ts`
+# - `src/config.ts`
 echo "window.ENV = {
   \"apiHost\": \"$VITE_API_HOST\",
 };" > /usr/share/nginx/html/environment.js;

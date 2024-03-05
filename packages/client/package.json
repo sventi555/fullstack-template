@@ -29,6 +29,8 @@
     "eslint": "^8.49.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "jsdom": "^24.0.0",
+    "msw": "^2.2.2",
     "postcss": "^8.4.31",
     "prettier": "^2.8.3",
     "rimraf": "^5.0.5",
