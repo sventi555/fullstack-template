@@ -14,19 +14,19 @@ It is laid out as a monorepo composed of 3 packages by default:
 
 Install dependencies:
 ```
-yarn
+pnpm install
 ```
 
 Start the app in dev mode:
 ```
-yarn dev
+pnpm dev
 ```
 
 Commands can be run in the package workspaces by prefixing the command with the package name.
 
 For example:
 ```
-yarn client test
+pnpm client test
 ```
 
 ## Releasing

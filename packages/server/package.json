@@ -41,7 +41,8 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
   },
-  "volta": {
-    "extends": "../../package.json"
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
   }
 }

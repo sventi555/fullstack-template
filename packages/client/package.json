@@ -37,7 +37,8 @@
     "vite": "^4.4.5",
     "vitest": "^0.34.6"
   },
-  "volta": {
-    "extends": "../../package.json"
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
   }
 }
