@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
+    "types": ["@types/jest"],
     "declaration": true
   },
   "include": ["src"]

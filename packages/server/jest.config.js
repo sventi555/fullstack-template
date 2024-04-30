@@ -5,5 +5,4 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   coverageReporters: ['json-summary', 'text'],
-  testMatch: ['<rootDir>/src/**/*.test.ts'],
 };
