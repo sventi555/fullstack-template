@@ -26,7 +26,7 @@ jobs:
 
       - name: Knip
         id: knip
-        run: pnpm knip >> $GITHUB_OUTPUT
+        run: pnpm knip
         continue-on-error: true
 
       - name: Build
