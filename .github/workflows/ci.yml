@@ -31,7 +31,7 @@ jobs:
 
       - name: Dead code warning
         if: steps.knip.outcome == 'failure'
-        run: echo ${{steps.knip.outputs.*}}
+        run: echo "::warning title={Dead code warning}::${{steps.knip.outputs.*}}"
 
       - name: Build
         run: pnpm build
