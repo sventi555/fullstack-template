@@ -26,8 +26,12 @@ jobs:
 
       - name: Knip
         id: knip
-        run: pnpm knip
+        run: pnpm knip >> $GITHUB_OUTPUT
         continue-on-error: true
+
+      - name: Dead code warning
+        if: steps.knip.outcome == 'failure'
+        run: echo ${{steps.knip.outputs.*}}
 
       - name: Build
         run: pnpm build
