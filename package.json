@@ -9,6 +9,7 @@
     "lint": "turbo lint",
     "test": "turbo test",
     "clean": "turbo clean",
+    "knip": "knip",
     "client": "pnpm --filter client",
     "lib": "pnpm --filter lib",
     "api": "pnpm --filter server",
