@@ -2,6 +2,7 @@
 
 This is a template for a fullstack web application.
 It is laid out as a monorepo composed of 3 packages by default:
+
 - [client](./packages/client/README.md): Frontend application built with [Vite](https://vitejs.dev/)
 - [server](./packages/server/README.md): Backend API built with [Hono](https://hono.dev/)
 - [lib](./packages/lib/README.md): Library containing shared code used in both the client and server
@@ -13,11 +14,13 @@ It is laid out as a monorepo composed of 3 packages by default:
 ## Getting Started
 
 Install dependencies:
+
 ```
 pnpm install
 ```
 
 Start the app in dev mode:
+
 ```
 pnpm dev
 ```
@@ -25,6 +28,7 @@ pnpm dev
 Commands can be run in the package workspaces by prefixing the command with the package name.
 
 For example:
+
 ```
 pnpm client test
 ```
@@ -40,5 +44,7 @@ In order to publish images, the following GitHub Actions variables and secrets n
 
 ### Secrets
 
-- `GCP_CREDS`: a base64 encoded service account key json file.
-The service account should have read/write permissions on the artifact registry.
+- `GCP_CREDS`: a service account key with the following permissions:
+  - Artifact Registry Writer
+  - Cloud Run Admin
+  - Service Account User
