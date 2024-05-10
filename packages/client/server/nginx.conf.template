@@ -15,12 +15,6 @@ server {
 
     # static assets
 
-    # prevent all caching of the environment.js file
-    location = /environment.js {
-        add_header Cache-Control "no-store";
-        try_files /environment.js =404;
-    }
-
     # for all routes with a dot that don't end in .html, serve the uri or 404 if not found
     location ~ \.(?!html) {
         add_header Cache-Control "public, max-age=2678400";
