@@ -5,6 +5,13 @@
         "@typescript-eslint/eslint-plugin",
         "@typescript-eslint/parser"
       ]
+    },
+    "packages/client": {
+      "ignore": ["src/api/schema.ts"],
+      "ignoreDependencies": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser"
+      ]
     }
   }
 }
