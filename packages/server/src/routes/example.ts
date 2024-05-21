@@ -1,11 +1,27 @@
-import { zValidator } from '@hono/zod-validator';
-import { Hono } from 'hono';
-import { GetExampleReturn, getExampleQuerySchema } from 'lib';
+import { OpenAPIHono, createRoute, z } from '@hono/zod-openapi';
 
-export const exampleRoutes = (app: Hono) => {
-  app.get('/example', zValidator('query', getExampleQuerySchema), (c) => {
+const route = createRoute({
+  method: 'get',
+  path: '/example',
+  request: {
+    query: z.object({ name: z.string() }),
+  },
+  responses: {
+    200: {
+      content: {
+        'application/json': {
+          schema: z.string(),
+        },
+      },
+      description: 'Retrieve a greeting',
+    },
+  },
+});
+
+export const exampleRoutes = (app: OpenAPIHono) => {
+  app.openapi(route, (c) => {
     const { name } = c.req.valid('query');
 
-    return c.json<GetExampleReturn>(`Hello ${name}!`);
+    return c.json(`Hello ${name}!`);
   });
 };

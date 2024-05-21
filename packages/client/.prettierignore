@@ -4,3 +4,4 @@ node_modules/
 postcss.config.cjs
 tailwind.config.cjs
 tsconfig.json
+src/api/schema.ts

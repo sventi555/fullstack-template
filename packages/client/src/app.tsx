@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
-import { getExample } from './api/example';
+import { apiClient } from './api/client';
 
 export const App: React.FC = () => {
   const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
-    getExample({ name: 'world' }).then((res) => {
-      setGreeting(res);
-    });
+    apiClient
+      .GET('/example', { params: { query: { name: 'World' } } })
+      .then((res) => {
+        if (res.data) {
+          setGreeting(res.data);
+        }
+      });
   }, []);
 
   return <p className="text-xl">{greeting}</p>;

@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "codegen": "openapi-typescript http://localhost:3001/schema -o src/api/schema.ts",
     "lint": "eslint . && prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest watch",
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "lib": "workspace:*",
+    "openapi-fetch": "^0.9.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -30,6 +32,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "jsdom": "^24.0.0",
     "msw": "^2.2.2",
+    "openapi-typescript": "^6.7.6",
     "postcss": "^8.4.31",
     "prettier": "^2.8.3",
     "rimraf": "^5.0.5",
