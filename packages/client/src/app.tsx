@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { apiClient } from './api/client';
+import { getAPIClient } from './api/client';
 
 export const App: React.FC = () => {
   const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
-    apiClient
+    getAPIClient()
       .GET('/example', { params: { query: { name: 'World' } } })
       .then((res) => {
         if (res.data) {
