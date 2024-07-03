@@ -29,9 +29,6 @@ importers:
 
   packages/client:
     dependencies:
-      lib:
-        specifier: workspace:*
-        version: link:../lib
       openapi-fetch:
         specifier: ^0.9.7
         version: 0.9.7
