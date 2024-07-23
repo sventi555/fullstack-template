@@ -99,9 +99,9 @@ importers:
 
   packages/lib:
     devDependencies:
-      '@tsconfig/node20':
-        specifier: ^20.1.2
-        version: 20.1.2
+      '@tsconfig/recommended':
+        specifier: ^1.0.7
+        version: 1.0.7
       '@types/jest':
         specifier: ^29.4.0
         version: 29.5.12
@@ -154,9 +154,9 @@ importers:
         specifier: workspace:*
         version: link:../lib
     devDependencies:
-      '@tsconfig/node20':
-        specifier: ^20.1.2
-        version: 20.1.2
+      '@tsconfig/recommended':
+        specifier: ^1.0.7
+        version: 1.0.7
       '@types/jest':
         specifier: ^29.4.0
         version: 29.5.12
@@ -919,8 +919,8 @@ packages:
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
 
-  '@tsconfig/node20@20.1.2':
-    resolution: {integrity: sha512-madaWq2k+LYMEhmcp0fs+OGaLFk0OenpHa4gmI4VEmCKX4PJntQ6fnnGADVFrVkBj0wIdAlQnK/MrlYTHsa1gQ==}
+  '@tsconfig/recommended@1.0.7':
+    resolution: {integrity: sha512-xiNMgCuoy4mCL4JTywk9XFs5xpRUcKxtWEcMR6FNMtsgewYTIgIR+nvlP4A4iRCAzRsHMnPhvTRrzp4AGcRTEA==}
 
   '@types/aria-query@5.0.4':
     resolution: {integrity: sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==}
@@ -4568,7 +4568,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@tsconfig/node20@20.1.2': {}
+  '@tsconfig/recommended@1.0.7': {}
 
   '@types/aria-query@5.0.4': {}
 
