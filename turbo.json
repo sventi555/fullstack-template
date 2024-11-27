@@ -3,18 +3,17 @@
   "tasks": {
     "dev": {
       "dependsOn": ["^build"],
-      "persistent": true
+      "persistent": true,
+      "cache": false
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
     },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "lint": {},
-    "test": {
-      "dependsOn": ["^build"]
-    },
-    "clean": {
-      "cache": false
-    }
+    "format": {},
+    "lint": {}
   }
 }

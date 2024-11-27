@@ -7,24 +7,17 @@
 # Environment
 **/.env
 **/.env.*
-!**/.env.production
-
-# Testing
-**/*.test.ts
-**/*.test.tsx
-**/jest.config.js
+**/.env.production
 
 # Turbo
 **/.turbo/
 
 # Code style
-**/.eslintignore
-**/.eslintrc.json
+**/eslint.config.js
 **/.lintstagedrc.json
 **/.prettierignore
 .husky/
 .prettierrc.json
-commitlint.config.js
 
 # Info
 **/README.md
@@ -34,5 +27,5 @@ commitlint.config.js
 .gitignore
 
 # Docker
-services/
+dockerfiles/
 .dockerignore
