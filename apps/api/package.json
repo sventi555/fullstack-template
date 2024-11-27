@@ -9,6 +9,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@hono/zod-validator": "0.4.1",
+    "dotenv": "16.4.5",
     "hono": "4.6.11",
     "lib": "workspace:*"
   },

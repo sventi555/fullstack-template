@@ -1,12 +1,16 @@
+import 'dotenv/config';
+
 import { Hono } from 'hono';
+import { cors } from 'hono/cors';
+import greetings from './routes/greetings';
 
 const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!');
-});
+app.use('/api/*', cors());
 
-const port = 3000;
+app.route('/api/greetings', greetings);
+
+const port = process.env.PORT;
 console.log(`Server is running on http://localhost:${port}`);
 
 export default {
