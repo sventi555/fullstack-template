@@ -6,6 +6,7 @@
   },
   "scripts": {
     "dev": "turbo dev",
+    "check-types": "turbo check-types",
     "build": "turbo check-types build",
     "start": "turbo start",
     "lint": "turbo format lint",
