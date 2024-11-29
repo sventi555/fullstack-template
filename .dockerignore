@@ -7,7 +7,7 @@
 # Environment
 **/.env
 **/.env.*
-**/.env.production
+!**/.env.production
 
 # Turbo
 **/.turbo/
