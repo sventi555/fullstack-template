@@ -7,9 +7,9 @@
     "dev": "vite --clearScreen false",
     "check-types": "tsc -b",
     "build": "vite build",
+    "start": "vite preview",
     "format": "prettier --check .",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@tanstack/react-query": "5.61.3",

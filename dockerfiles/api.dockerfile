@@ -30,7 +30,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY --from=installer /app/out/json/ .
-RUN pnpm install --frozen-lockfile --ignore-scripts
+RUN pnpm install --frozen-lockfile --prod --ignore-scripts 
 
 COPY --from=installer /app/out/full/ .
 
@@ -45,4 +45,4 @@ USER hono
 
 COPY --from=builder --chown=hono:nodejs /app .
 
-CMD ["bun", "/app/apps/api/src/index.ts"]
+CMD bun run --filter api start

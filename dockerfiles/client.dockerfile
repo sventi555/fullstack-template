@@ -46,4 +46,4 @@ COPY --from=builder /app/apps/client/dist /usr/share/nginx/html
 COPY --from=builder /app/apps/client/server/nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY --from=builder /app/apps/client/server/entrypoint.sh ./
 
-CMD ["./entrypoint.sh"]
+CMD ./entrypoint.sh

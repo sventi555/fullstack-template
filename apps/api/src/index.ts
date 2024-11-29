@@ -11,7 +11,6 @@ app.use('/api/*', cors());
 app.route('/api/greetings', greetings);
 
 const port = process.env.PORT;
-console.log(`Server is running on http://localhost:${port}`);
 
 export default {
   fetch: app.fetch,
