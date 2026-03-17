@@ -13,11 +13,9 @@
 **/.turbo/
 
 # Code style
-**/eslint.config.js
+**/biome.json
 **/.lintstagedrc.json
-**/.prettierignore
 .husky/
-.prettierrc.json
 
 # Info
 **/README.md
