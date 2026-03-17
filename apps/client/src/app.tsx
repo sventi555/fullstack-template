@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { GetGreetingsQuery, GetGreetingsReturn } from 'lib';
+import type { GetGreetingsQuery, GetGreetingsReturn } from 'lib';
 
 const App: React.FC = () => {
   const { data: greeting } = useQuery({
