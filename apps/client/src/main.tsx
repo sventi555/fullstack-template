@@ -6,6 +6,7 @@ import './index.css';
 
 const queryClient = new QueryClient();
 
+// biome-ignore lint: root is defined in index.html
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
