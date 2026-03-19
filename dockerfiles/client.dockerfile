@@ -42,7 +42,7 @@ RUN apk add --no-cache bash
 
 WORKDIR /app
 
-COPY --from=builder /app/apps/client/dist /usr/share/nginx/html 
+COPY --from=builder /app/apps/client/out /usr/share/nginx/html 
 COPY --from=builder /app/apps/client/server/nginx.conf.template /etc/nginx/templates/default.conf.template
 COPY --from=builder /app/apps/client/server/entrypoint.sh ./
 
