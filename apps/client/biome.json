@@ -1,7 +1,16 @@
 {
   "extends": "//",
+  "files": {
+    "includes": ["**", "!node_modules", "!.next", "!out"]
+  },
   "linter": {
+    "rules": {
+      "suspicious": {
+        "noUnknownAtRules": "off"
+      }
+    },
     "domains": {
+      "next": "recommended",
       "react": "recommended"
     }
   }
