@@ -1,0 +1,20 @@
+[
+  {
+    "action": {
+      "type": "DELETE"
+    },
+    "condition": {
+      "tagState": "ANY"
+    },
+    "name": "Delete all"
+  },
+  {
+    "action": {
+      "type": "KEEP"
+    },
+    "mostRecentVersions": {
+      "keepCount": 3
+    },
+    "name": "Keep last 3"
+  }
+]
