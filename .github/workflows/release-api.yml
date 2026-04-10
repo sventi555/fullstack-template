@@ -1,0 +1,15 @@
+name: API Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  call-release:
+    uses: ./.github/workflows/release.yml
+    with:
+      service_name: api
+      dockerfile_path: dockerfiles/api.dockerfile
+      image_registry: ${{ vars.IMAGE_REGISTRY }}
+    secrets:
+      GCP_CREDS: ${{ secrets.GCP_CREDS }}

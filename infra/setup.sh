@@ -11,6 +11,12 @@ NC='\033[0m'
 HL='\033[0;36m'
 
 
+# CONSTANTS ------------------------------------------------------------------------
+
+gcp_org=360426331249
+region=us-east4
+
+
 # PROJECT ----------------------------------------------------------------------
 
 # create project
@@ -115,6 +121,6 @@ gh release create v1.0.0 --title "Version 1.0.0" --notes "Initial release"
 
 # POST-SETUP -------------------------------------------------------------------
 
-echo "${HL}ACTION REQUIRED${NC} - Add the following records to your domain:"
+echo "\n${HL}ACTION REQUIRED${NC} - Add the following records to your domain:"
 echo $client_record
 echo $api_record

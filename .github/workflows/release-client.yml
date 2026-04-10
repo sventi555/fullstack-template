@@ -1,0 +1,15 @@
+name: Client Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  call-release:
+    uses: ./.github/workflows/release.yml
+    with:
+      service_name: client
+      dockerfile_path: dockerfiles/client.dockerfile
+      image_registry: ${{ vars.IMAGE_REGISTRY }}
+    secrets:
+      GCP_CREDS: ${{ secrets.GCP_CREDS }}
