@@ -7,7 +7,8 @@
   },
   "scripts": {
     "check-types": "tsc",
-    "lint": "biome check"
+    "format": "prettier --check .",
+    "lint": "biome lint"
   },
   "dependencies": {
     "zod": "3.23.8"

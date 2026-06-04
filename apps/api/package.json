@@ -6,7 +6,8 @@
     "dev": "bun run --watch --no-clear-screen src/index.ts",
     "start": "NODE_ENV=production bun run src/index.ts",
     "check-types": "tsc",
-    "lint": "biome check"
+    "format": "prettier --check .",
+    "lint": "biome lint"
   },
   "dependencies": {
     "@hono/zod-validator": "0.4.1",

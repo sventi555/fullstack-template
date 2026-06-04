@@ -1,1 +1,1 @@
-{ "*": "biome check" }
+{ "*": "prettier --check --ignore-unknown", "*.{ts,tsx}": "biome lint" }

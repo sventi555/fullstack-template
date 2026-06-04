@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check"
+    "format": "prettier --check .",
+    "lint": "biome lint"
   },
   "dependencies": {
     "next": "16.1.7",
@@ -19,6 +20,7 @@
     "@types/node": "24.10.0",
     "@types/react": "19.2.3",
     "@types/react-dom": "19.2.3",
+    "prettier-plugin-tailwindcss": "0.8.0",
     "tailwindcss": "4.2.2",
     "typescript": "5.6.2"
   }
