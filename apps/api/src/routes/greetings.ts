@@ -1,13 +1,28 @@
-import { zValidator } from '@hono/zod-validator';
-import { Hono } from 'hono';
-import { type GetGreetingsReturn, getGreetingsQuery } from 'lib';
+import { createRoute, OpenAPIHono, z } from '@hono/zod-openapi';
 
-const app = new Hono();
+const app = new OpenAPIHono();
 
-app.get('/', zValidator('query', getGreetingsQuery), (c) => {
+const getGreetingsRoute = createRoute({
+  operationId: 'getGreetings',
+  method: 'get',
+  path: '/',
+  request: {
+    query: z.object({
+      name: z.string(),
+    }),
+  },
+  responses: {
+    200: {
+      description: 'Successfully retrieved greetings',
+      content: { 'application/json': { schema: z.string() } },
+    },
+  },
+});
+
+app.openapi(getGreetingsRoute, async (c) => {
   const { name } = c.req.valid('query');
 
-  return c.json<GetGreetingsReturn>(`Hello ${name}!`);
+  return c.json(`Hello ${name}!`, 200);
 });
 
 export default app;

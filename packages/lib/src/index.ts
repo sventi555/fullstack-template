@@ -1,1 +1,1 @@
-export * from './schemas';
+export const hello = 'world';
