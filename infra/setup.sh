@@ -117,7 +117,7 @@ gh secret set GCP_CREDS --body "$(cat $dir/key.json | base64)"
 gh variable set IMAGE_REGISTRY --body "$region-docker.pkg.dev/$project_id/$project_name"
 
 echo "Creating a release"
-gh release create v1.0.0 --title "Version 1.0.0" --notes "Initial release"
+gh release create v$release_version --title "Version ${release_version}" --notes "${release_description}"
 
 # POST-SETUP -------------------------------------------------------------------
 
