@@ -3,16 +3,12 @@ FROM node:24-alpine AS base
 ################################################################################
 FROM base AS installer
 
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
-
 RUN apk update
 RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
 
-RUN pnpm add -g turbo@2
+RUN npm add -g turbo@2
 COPY . .
 
 RUN turbo prune client --docker
