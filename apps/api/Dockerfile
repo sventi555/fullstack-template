@@ -1,37 +1,29 @@
 FROM node:24-alpine AS base
 
-################################################################################
-FROM base AS installer
-
 RUN apk update
 RUN apk add --no-cache libc6-compat
-
 WORKDIR /app
 
-RUN npm add -g turbo@2
-COPY . .
+################################################################################
+FROM base AS prepare
 
+RUN npm -g install turbo@^2
+COPY . .
 RUN turbo prune api --docker
 
 ################################################################################
 FROM base AS builder
 
 ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+ENV PATH="$PNPM_HOME/bin:$PATH"
 RUN corepack enable
 
-RUN apk update
-RUN apk add --no-cache libc6-compat
-
-WORKDIR /app
-
-COPY --from=installer /app/out/json/ .
-RUN pnpm install --frozen-lockfile --prod --ignore-scripts 
-
-COPY --from=installer /app/out/full/ .
+COPY --from=prepare /app/out/json/ .
+RUN pnpm install --frozen-lockfile --prod --ignore-scripts
+COPY --from=prepare /app/out/full/ .
 
 ################################################################################
-FROM oven/bun:1.3.5 AS runner
+FROM oven/bun:1.3.14 AS runner
 
 WORKDIR /app
 

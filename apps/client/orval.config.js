@@ -1,11 +1,11 @@
 import { defineConfig } from 'orval';
 
 export default defineConfig({
-  intentions: {
+  api: {
     input: 'http://localhost:3001/schema',
     output: {
       headers: true,
-      target: './api.gen.ts',
+      target: './src/api.gen.ts',
       client: 'react-query',
       httpClient: 'fetch',
       override: {

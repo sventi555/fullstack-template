@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    // Enable latest features
+    // Environment setup & latest features
     "lib": ["ESNext"],
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "Preserve",
     "moduleDetection": "force",
 
     // Bundler mode

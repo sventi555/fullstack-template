@@ -1,5 +1,5 @@
 const getBaseUrl = () => {
-  return process.env.NEXT_PUBLIC_API_HOST;
+  return import.meta.env.VITE_API_HOST;
 };
 
 export const customFetch = <T>(

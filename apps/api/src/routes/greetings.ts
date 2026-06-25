@@ -1,4 +1,5 @@
 import { createRoute, OpenAPIHono, z } from '@hono/zod-openapi';
+import { name } from 'lib';
 
 const app = new OpenAPIHono();
 
@@ -20,9 +21,14 @@ const getGreetingsRoute = createRoute({
 });
 
 app.openapi(getGreetingsRoute, async (c) => {
-  const { name } = c.req.valid('query');
+  const query = c.req.valid('query');
 
-  return c.json(`Hello ${name}!`, 200);
+  const greeting =
+    query.name === name
+      ? `I've been expecting you.`
+      : 'What a pleasant surprise.';
+
+  return c.json(`Hello ${query.name}! ${greeting}`, 200);
 });
 
 export default app;

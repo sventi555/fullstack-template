@@ -1,9 +1,9 @@
 import 'dotenv/config';
 
-import { cors } from 'hono/cors';
-import greetings from './routes/greetings';
-import { OpenAPIHono } from '@hono/zod-openapi';
+import greetings from '@/routes/greetings';
 import { swaggerUI } from '@hono/swagger-ui';
+import { OpenAPIHono } from '@hono/zod-openapi';
+import { cors } from 'hono/cors';
 
 const app = new OpenAPIHono();
 
@@ -13,7 +13,7 @@ app.route('/api/greetings', greetings);
 
 app.doc('/schema', {
   openapi: '3.0.0',
-  info: { version: '1.0.0', title: 'Fullstack API' },
+  info: { version: '1.0.0', title: 'fs-template' },
 });
 
 app.get(

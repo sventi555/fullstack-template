@@ -16,3 +16,6 @@
 
 # Logging
 **/*.log
+
+# Secrets
+**/key.json

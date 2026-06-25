@@ -9,7 +9,7 @@ jobs:
     uses: ./.github/workflows/release.yml
     with:
       service_name: api
-      dockerfile_path: dockerfiles/api.dockerfile
+      dockerfile_path: apps/api/Dockerfile
       image_registry: ${{ vars.IMAGE_REGISTRY }}
     secrets:
       GCP_CREDS: ${{ secrets.GCP_CREDS }}

@@ -13,6 +13,8 @@
 **/.turbo/
 
 # Code style
+**/prettier.config.js
+**/.prettierignore
 **/biome.json
 **/.lintstagedrc.json
 .husky/
@@ -25,5 +27,5 @@
 .gitignore
 
 # Docker
-dockerfiles/
+**/Dockerfile/
 .dockerignore
